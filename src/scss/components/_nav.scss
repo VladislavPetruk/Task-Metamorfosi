@@ -1,0 +1,134 @@
+.nav {
+  @include tablet {
+    position: absolute;
+    @include flex-all-sb;
+    flex-direction: column;
+    width: 50%;
+    height: var(--vh);
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    z-index: 4;
+    background: linear-gradient(
+      104.93deg,
+      rgba(122, 122, 122, 0.1) 1.86%,
+      rgba(122, 122, 122, 0) 104.73%
+    );
+    background-color: #17191d;
+    border-top: 1px solid var(--color-dark);
+    padding: 132px 20px 35px;
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      background: linear-gradient(
+        104.93deg,
+        rgba(122, 122, 122, 0.1) 1.86%,
+        rgba(122, 122, 122, 0) 104.73%
+      );
+      filter: drop-shadow(0px 4px 4px rgba(50, 50, 50, 0.15));
+      backdrop-filter: blur(100px); // лаги у хромі
+    }
+
+    &--active {
+      transform: translateX(0);
+      transition: all 0.3s ease-in-out;
+      visibility: visible;
+    }
+  }
+
+  @include small-tablet {
+    width: 100%;
+  }
+
+  &__list {
+    @include flex-v-center;
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    @include mr(30px);
+    @include tablet {
+      @include mb(30px);
+    }
+  }
+
+  &__link {
+    position: relative;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: var(--color-light);
+    transition: all 0.3s ease-in-out;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-light);
+      transition: 0.2s linear;
+    }
+
+    @include hover {
+      opacity: 1;
+      &::before {
+        width: 100%;
+      }
+    }
+
+    @include tablet {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      text-transform: uppercase;
+    }
+
+    &--active {
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-light);
+        transition: 0.2s linear;
+      }
+    }
+  }
+
+  &-mobile-bottom {
+    @include for-desktop {
+      display: none;
+    }
+  }
+
+  &-mobile-bottom {
+    text-align: center;
+
+    &_privacy {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 18px;
+      color: #b1b1b1;
+    }
+  }
+
+  &-mobile-socials {
+    margin-bottom: 25px;
+    a {
+      color: var(--color-light);
+
+      @include mr(15px);
+
+      svg {
+        fill: currentColor;
+      }
+    }
+  }
+}

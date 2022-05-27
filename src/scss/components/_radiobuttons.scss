@@ -1,0 +1,117 @@
+.team-radiobtn {
+  @include adaptiv-value("max-width", 633, 335, 1);
+  @include adaptiv-value("margin-bottom", 71, 40, 1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 61px;
+
+  @include small-desktop {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include small-mobile {
+    max-width: 300px;
+  }
+  * {
+    z-index: 2;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  .tab {
+    position: relative;
+    @include flex-all-center;
+    @include adaptiv-value("height", 68, 38, 1);
+    @include adaptiv-value("font-size", 24, 18, 1);
+    @include adaptiv-value("line-height", 28, 21, 1);
+    border-radius: 61px;
+    padding-left: 20px;
+    font-weight: 500;
+    color: var(--color-vulcan);
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+
+    &::before {
+      content: "";
+      position: absolute;
+      @include adaptiv-value("height", 25, 18.33, 1);
+      @include adaptiv-value("width", 25, 18.33, 1);
+      @include adaptiv-value("left", 45, 13, 1);
+      border-radius: 50%;
+      border: 2.5px solid var(--color-dark);
+
+      @include small-mobile {
+        left: 6px;
+      }
+    }
+  }
+
+  input[type="radio"] {
+    &:checked {
+      & + label {
+        color: var(--color-light);
+        &::before {
+          border-color: var(--color-light);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          @include adaptiv-value("height", 12.5, 9, 1);
+          @include adaptiv-value("width", 12.5, 9, 1);
+          @include adaptiv-value("left", 51.5, 17.5, 1);
+          border-radius: 50%;
+          background-color: var(--color-light);
+
+          @include small-mobile {
+            left: 11px;
+          }
+        }
+      }
+    }
+  }
+
+  input[id="radio-1"] {
+    &:checked {
+      & ~ .glider {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  input[id="radio-2"] {
+    &:checked {
+      & ~ .glider {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  input[id="radio-3"] {
+    &:checked {
+      & ~ .glider {
+        transform: translateX(200%);
+      }
+    }
+  }
+
+  .glider {
+    position: absolute;
+    display: flex;
+    @include adaptiv-value("height", 68, 38, 1);
+    @include adaptiv-value("width", 211, 111, 1);
+    background-color: var(--color-rose);
+    z-index: 1;
+    border-radius: 61px;
+    transition: 0.25s ease-out;
+
+    @include small-mobile {
+      max-width: 100px;
+    }
+  }
+}

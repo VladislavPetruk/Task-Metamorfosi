@@ -1,0 +1,85 @@
+.hero {
+  position: relative;
+  @include adaptiv-value("height", 1080, 812, 1);
+  background-image: url("../../img/hero-back.jpg");
+  background-size: cover;
+  background-position-x: center;
+
+  &-container {
+    position: relative;
+    @include flex-all-center;
+    height: 100%;
+  }
+
+  &-wrapper {
+    z-index: 1;
+    max-width: 1268px;
+    @include adaptiv-value("padding-top", 72, 56, 1);
+    @include adaptiv-value("padding-bottom", 72, 56, 1);
+    @include adaptiv-value("padding-left", 46, 23, 1);
+    @include adaptiv-value("padding-right", 46, 23, 1);
+    background: linear-gradient(
+      104.93deg,
+      rgba(122, 122, 122, 0.19) 1.86%,
+      rgba(122, 122, 122, 0) 104.73%
+    );
+    border-radius: 7px;
+    color: var(--color-light);
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      filter: drop-shadow(0px 4px 4px rgba(50, 50, 50, 0.15));
+      backdrop-filter: blur(100px); // лаги у хромі
+    }
+
+    h1 {
+      @include adaptiv-value("font-size", 72, 34, 1);
+      @include adaptiv-value("line-height", 83, 39, 1);
+      font-weight: 700;
+    }
+
+    p {
+      max-width: 742px;
+      margin: 0 auto;
+      @include adaptiv-value("margin-top", 40, 30, 1);
+      @include adaptiv-value("margin-bottom", 114, 40, 1);
+      @include adaptiv-value("font-size", 24, 16, 1);
+      @include adaptiv-value("line-height", 28, 20, 1);
+      font-weight: 300;
+    }
+
+    &_btn {
+      .btn {
+        @include mr(60px);
+
+        @include small-tablet {
+          @include mr(0);
+          @include mb(30px);
+          margin: 0 auto;
+        }
+
+        @include small-mobile{
+          padding: 18px 60px;
+        }
+      }
+    }
+  }
+
+  &-circle-big {
+    position: absolute;
+    bottom: 0;
+    @include adaptiv-value("width", 1021, 315, 1);
+    @include adaptiv-value("height", 292, 96, 1);
+    background-image: url("../../img/hero-circle-big.png");
+    background-position: center bottom;
+    background-size: cover;
+  }
+  &-circle-small {
+    position: absolute;
+    @include adaptiv-value("left", 361, 102, 1);
+    @include adaptiv-value("top", 52, 135, 1);
+    @include adaptiv-value("width", 256, 79, 1);
+    @include adaptiv-value("height", 256, 79, 1);
+    background-image: url("../../img/hero-circle-small.png");
+    background-position: center bottom;
+    background-size: cover;
+  }
+}

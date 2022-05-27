@@ -1,0 +1,12 @@
+:root {
+  --font-family: "Ubuntu", sans-serif;
+  --content-width: 1820px;
+  --container-offset: 20px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+  // colors
+  --color-light: #fff;
+  --color-dark: #000;
+  --color-vulcan: #101020;
+  --color-rose: #ff0b53;
+}

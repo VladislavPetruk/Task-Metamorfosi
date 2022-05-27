@@ -1,0 +1,8 @@
+.partners {
+  @include adaptiv-value("padding-top", 120, 50, 1);
+  @include adaptiv-value("padding-bottom", 120, 50, 1);
+
+  h2 {
+    @include adaptiv-value("margin-bottom", 90, 30, 1);
+  }
+}

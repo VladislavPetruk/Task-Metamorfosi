@@ -1,0 +1,115 @@
+.footer {
+  @include adaptiv-value("padding-top", 120, 50, 1);
+  @include adaptiv-value("padding-bottom", 132, 50, 1);
+  background-image: url(../../img/footer-back.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  h2 {
+    @include adaptiv-value("margin-bottom", 90, 30, 1);
+    color: var(--color-light);
+  }
+
+  &-wrapper {
+    display: flex;
+    align-items: flex-start;
+
+    @include small-tablet {
+      display: block;
+    }
+  }
+
+  &-col {
+    color: var(--color-light);
+
+    &:not(:last-child) {
+      @include adaptiv-value("margin-right", 267, 0, 1);
+    }
+
+    @include small-tablet {
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-title {
+      display: inline-block;
+      @include adaptiv-value("width", 130, 89, 1);
+      @include adaptiv-value("margin-bottom", 30, 20, 1);
+      @include adaptiv-value("font-size", 30, 20, 1);
+      @include adaptiv-value("line-height", 34, 23, 1);
+      border-bottom: 2px solid var(--color-rose);
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--color-light);
+    }
+
+    &-link {
+      @include adaptiv-value("font-size", 20, 16, 1);
+      @include adaptiv-value("line-height", 23, 18, 1);
+    }
+
+    &_office {
+      .footer-col-item {
+        position: relative;
+        margin-bottom: 12px;
+        padding-left: 39px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 24px;
+          height: 24px;
+          background-repeat: no-repeat;
+        }
+
+        &_mail {
+          &::before {
+            background-image: url("../../img/svg/mail.svg");
+          }
+        }
+        &_phone {
+          &::before {
+            background-image: url("../../img/svg/phone.svg");
+          }
+        }
+        &_place {
+          &::before {
+            background-image: url("../../img/svg/place.svg");
+          }
+        }
+      }
+    }
+
+    &-list_socials {
+      @include adaptiv-value("margin-bottom", 30, 20, 1);
+      @include flex-v-center;
+
+      li {
+        @include adaptiv-value("margin-right", 15, 12, 1);
+      }
+      a {
+        color: var(--color-rose);
+      }
+
+      svg {
+        fill: currentColor;
+      }
+    }
+
+    & > &-privacy {
+      @include adaptiv-value("font-size", 18, 16, 1);
+      @include adaptiv-value("line-height", 21, 18, 1);
+      color: #b1b1b1;
+
+      @include mobile {
+        font-weight: 300;
+      }
+    }
+  }
+}

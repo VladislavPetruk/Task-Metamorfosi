@@ -1,0 +1,19 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  max-width: 1810px;
+  width: 100%;
+  padding: 30px 0;
+  background-color: transparent;
+
+  &-container {
+    @include flex-all-sb;
+  }
+
+  &-logo {
+    z-index: 5;
+  }
+}

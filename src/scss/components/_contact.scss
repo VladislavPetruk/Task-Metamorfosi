@@ -1,0 +1,16 @@
+.contact {
+  background: url("../../img/contact-back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: right;
+  @include adaptiv-value("padding-top", 120, 50, 1);
+  @include adaptiv-value("padding-bottom", 284, 50, 1);
+
+  @include small-tablet {
+    background-position-x: -900px;
+  }
+
+  h2 {
+    @include adaptiv-value("margin-bottom", 93, 22, 1);
+  }
+}

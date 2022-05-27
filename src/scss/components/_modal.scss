@@ -1,0 +1,110 @@
+.graph-modal {
+  background-color: rgba(0, 0, 0, 0.63);
+
+  &__container {
+    @include adaptiv-value("padding", 20, 10, 1);
+    max-width: 724px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+
+    @include tablet {
+      @include adaptiv-value("width", 724, 335, 1);
+    }
+  }
+
+  &__close {
+    background-image: url("../../img/svg/close.svg");
+    width: 36px;
+    height: 36px;
+    transition: filter 0.2s ease-in-out;
+
+    @include for-desktop {
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+
+    @include hover {
+      filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
+    }
+  }
+}
+
+.modal {
+  &-top {
+    display: grid;
+    grid-template-columns: 271px 1fr;
+    grid-gap: 22px;
+
+    @include tablet {
+      grid-template-columns: auto;
+    }
+
+    &-img {
+      overflow: hidden;
+
+      img {
+        @include small-tablet {
+          @include adaptiv-value("width", 271, 102, 1);
+        }
+      }
+    }
+
+    &-info {
+      tr {
+        @include flex-v-center;
+        @include adaptiv-value("margin-bottom", 12, 15, 1);
+        @include adaptiv-value("height", 37, 32, 1);
+        @include adaptiv-value("font-size", 20, 16, 1);
+        @include adaptiv-value("line-height", 23, 18.38, 1);
+
+        td:first-child {
+          @include adaptiv-value("width", 102, 88, 1);
+          color: #585858;
+        }
+
+        td:last-child {
+          padding: 7px 10px;
+          background: #f4f4f4;
+          border-radius: 7px;
+          color: #2c2c2c;
+        }
+      }
+    }
+
+    &-socials {
+      @include flex-v-center;
+      width: max-content;
+      padding: 5px 10px;
+      background: #f4f4f4;
+      border-radius: 7px;
+
+      a {
+        @include adaptiv-value("width", 30, 24, 1);
+        @include adaptiv-value("height", 30, 24, 1);
+        color: var(--color-rose);
+
+        @include mr(12px);
+
+        @include mobile {
+          @include mr(10px);
+        }
+
+        .icon {
+          width: 100%;
+          height: 100%;
+          fill: currentColor;
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    margin-top: 20px;
+    p {
+      @include adaptiv-value("font-size", 20, 16, 1);
+      @include adaptiv-value("line-height", 29, 24, 1);
+      font-weight: 300;
+      color: #3d3d3d;
+    }
+  }
+}

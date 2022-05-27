@@ -1,0 +1,97 @@
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+
+  @include tablet {
+    grid-template-columns: auto;
+    grid-gap: 30px;
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include adaptiv-value("grid-gap", 20, 16, 1);
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &-item {
+      @include flex-all-center;
+      @include adaptiv-value("height", 171, 101, 1);
+      max-width: 300px;
+      background-color: var(--color-light);
+      border: 1px solid #dedede;
+      border-radius: 10px;
+      transition: all 0.2s ease-in-out;
+
+      @include hover {
+        background-color: rgb(247, 247, 247);
+      }
+    }
+
+    &-btn {
+      flex: 1;
+      height: 100%;
+      padding: 0 5px;
+      &:focus {
+        background: none;
+      }
+    }
+  }
+
+  &__content {
+    @include adaptiv-value("padding", 30, 10, 1);
+    background-color: var(--color-light);
+    border: 1px solid #dedede;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  &__panel {
+    &-main {
+      display: flex;
+      align-items: flex-start;
+      @include adaptiv-value("margin-bottom", 30, 20, 1);
+
+      img {
+        @include adaptiv-value("width", 77, 44, 1);
+        @include adaptiv-value("height", 77, 44, 1);
+      }
+
+      &-txt {
+        @include adaptiv-value("margin-left", 15, 10, 1);
+
+        .name {
+          @include adaptiv-value("margin-bottom", 10, 5, 1);
+          @include adaptiv-value("font-size", 24, 20, 1);
+          @include adaptiv-value("line-height", 28, 23, 1);
+          font-weight: 500;
+          color: var(--color-dark);
+        }
+        .position {
+          @include adaptiv-value("font-size", 20, 16, 1);
+          @include adaptiv-value("line-height", 23, 18, 1);
+          font-weight: 300;
+          color: #575757;
+        }
+      }
+    }
+    &-info {
+      @include adaptiv-value("font-size", 20, 16, 1);
+      @include adaptiv-value("line-height", 29, 22, 1);
+      font-weight: 300;
+      color: #3d3d3d;
+
+      @include for-desktop {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        max-height: 174px;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}
